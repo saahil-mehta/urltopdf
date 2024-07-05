@@ -1,13 +1,13 @@
-# GCP Knowledge Base PDF Generator
+# Webpage PDF Generator
 
-This repository provides a Python script to convert HTML URLs into PDF files. The script is particularly tailored to handle web pages from Google's Cloud Platform (GCP) documentation, ensuring that the content is rendered fully and in English. The PDFs are saved in a structured manner within a specified folder hierarchy.
+This repository provides a Python script to convert HTML URLs into PDF files. The script is particularly tailored to handle web pages from Google's Cloud Platform (webpage) documentation, ensuring that the content is rendered fully and in English. The PDFs are saved in a structured manner within a specified folder hierarchy.
 
 ## Features
 
 - Converts one or multiple HTML URLs to PDFs.
 - Generates comprehensible filenames from URLs.
 - Ensures the PDF content is in English.
-- Saves PDFs to specified subfolders within a `GCP-KnowledgeBase` directory.
+- Saves PDFs to specified subfolders within a `KnowledgeBase` directory.
 
 ## Prerequisites
 
@@ -19,15 +19,15 @@ This repository provides a Python script to convert HTML URLs into PDF files. Th
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/gcp-knowledge-base-pdf-generator.git
-   cd gcp-knowledge-base-pdf-generator
+   git clone https://github.com/saahil-mehta/urltopdf.git
+   cd webpage-knowledge-base-pdf-generator
    ```
 
 2. **Set up the Conda environment:**
    Create and activate a new Conda environment with the required Python version and dependencies.
    ```bash
-   conda create --name gcp_pdf_generator python=3.11
-   conda activate gcp_pdf_generator
+   conda create --name webpage_pdf_generator python=3.11
+   conda activate webpage_pdf_generator
    ```
 
 3. **Install required Python packages:**
@@ -49,11 +49,11 @@ This repository provides a Python script to convert HTML URLs into PDF files. Th
 
 ### Function: `save_webpages_as_pdfs`
 
-This function converts one or multiple HTML URLs to PDFs and saves them in a specified subfolder within the `GCP-KnowledgeBase` directory.
+This function converts one or multiple HTML URLs to PDFs and saves them in a specified subfolder within the `webpage-KnowledgeBase` directory.
 
 #### Parameters:
 - `urls` (list or str): A list of HTML URLs or a single URL to be converted to PDFs.
-- `destination` (str): The subfolder within `GCP-KnowledgeBase` where PDFs will be saved.
+- `destination` (str): The subfolder within `webpage-KnowledgeBase` where PDFs will be saved.
 
 #### Example:
 ```python
@@ -68,7 +68,7 @@ def save_webpages_as_pdfs(urls, destination):
 
     Parameters:
     urls (list): A list of HTML URLs to be converted to PDFs.
-    destination (str): The subfolder within GCP-KnowledgeBase where PDFs will be saved.
+    destination (str): The subfolder within webpage-KnowledgeBase where PDFs will be saved.
 
     Returns:
     None
@@ -105,7 +105,7 @@ def save_webpages_as_pdfs(urls, destination):
         modified_url = urlunparse((parsed_url.scheme, parsed_url.netloc, parsed_url.path, parsed_url.params, new_query, parsed_url.fragment))
         return modified_url
 
-    output_dir = os.path.join('GCP-KnowledgeBase', destination)
+    output_dir = os.path.join('webpage-KnowledgeBase', destination)
     os.makedirs(output_dir, exist_ok=True)
     
     if isinstance(urls, str):
